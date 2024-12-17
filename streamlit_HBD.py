@@ -8,7 +8,7 @@ color=st.color_picker("Pic a color ")
 # number slider
 number=st.slider("Pick a no. ", 0,100)
 # print the data
-print.write(f'you select {color} and {number}')
+# print.write(f'you select {color} and {number}')
 # add a button 
 if st.button("Click Me!"):
     st.write("Hello There ! How are you ? ")
