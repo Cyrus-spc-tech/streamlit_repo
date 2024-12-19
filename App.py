@@ -16,19 +16,22 @@ if uploaded_file is not None:
     st.write(df.describe())# it will describe the  row and columns of the data
 
     st.subheader("Filter Data")
-    columns = df.columns.tolist()
-    selected_column = st.selectbox("Select column to filter by", columns)
-    unique_values = df[selected_column].unique()
-    selected_value = st.selectbox("Select value", unique_values)
+    filter = st.selectbox("Select a column to filter by", df.columns.tolist())# use to select the columns 
+    
+    unique_val=df[filter].unique()
+    selected_val=st.selectbox("select value",unique_val)
 
-    filtered_df = df[df[selected_column] == selected_value]
-    st.write(filtered_df)
+    filtered_data=df[df[filter]==selected_val]
+    st.write(filtered_data)
 
-    st.subheader("Plot Data")
-    x_column = st.selectbox("Select x-axis column", columns)
-    y_column = st.selectbox("Select y-axis column", columns)
+    st.subheader("  plotting data ")
+    xaxis=st.selectbox(" Select x- axis ",df.columns)
+    yaxis=st.selectbox(" Select y- axis ",df.columns)
 
-    if st.button("Generate Plot"):
-        st.line_chart(filtered_df.set_index(x_column)[y_column])
-else:
-    st.write("Waiting on file upload...")
+    if st.button("Generate Plot"): 
+        plt.figure(figsize=(10,6))
+        plt.plot(xaxis,yaxis)
+        plt.title(f"Scatter plot of {xaxis} vs {yaxis}")
+        st.pyplot(plt)
+    else :
+        st.write("Please click the button to generate the plot")
