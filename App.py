@@ -27,11 +27,7 @@ if uploaded_file is not None:
     st.subheader("  plotting data ")
     xaxis=st.selectbox(" Select x- axis ",df.columns)
     yaxis=st.selectbox(" Select y- axis ",df.columns)
-
-    if st.button("Generate Plot"): 
-        plt.figure(figsize=(10,6))
-        plt.plot(xaxis,yaxis)
-        plt.title(f"Scatter plot of {xaxis} vs {yaxis}")
-        st.pyplot(plt)
-    else :
+    if st.button("Generate Plot"):
+         st.line_chart(filtered_data.set_index(xaxis)[yaxis])
+    else:
         st.write("Please click the button to generate the plot")
