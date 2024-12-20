@@ -1,7 +1,7 @@
 import streamlit as st
 import colorama
 from colorama import Fore, Back, Style
-# colorama.init()
+colorama.init()
 import pandas as pd
 from datetime import datetime
 import numpy as np
