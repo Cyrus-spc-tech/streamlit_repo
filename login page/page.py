@@ -12,21 +12,14 @@ if st.button("Login"):
     if username == "correct_username" and password == "correct_password":
         st.query_params = {"page": "home"}
         st.success("Login successful! Redirecting...")
+        st.experimental_rerun()
     else:
         st.error("Invalid username or password")
 
 # Check for query parameters to display different content
 query_params = st.query_params
 
+
 # Using key notation
 if query_params.get("page") == "home":
-    st.title("Home Page")
-    st.write("Welcome to the home page!")
-
-# Using attribute notation
-if hasattr(query_params, 'page') and query_params.page == "home":
-    st.title("Home Page")
-    st.write("Welcome to the home page!")
-
-# Change a query parameter
-st.query_params = {"page": "home"}
+    st.write('<meta http-equiv="refresh" content="0; url=home.py">', unsafe_allow_html=True)
