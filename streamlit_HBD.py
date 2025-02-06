@@ -28,3 +28,4 @@ genre=st.radio(
     ("Drama", "Action","Entertainment","Thriller")
 )
 st.balloons()
+st.snow()
