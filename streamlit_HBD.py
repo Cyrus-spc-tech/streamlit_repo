@@ -27,5 +27,5 @@ genre=st.radio(
     "what is your movie genera : ",
     ("Drama", "Action","Entertainment","Thriller")
 )
-st.balloons()
+st.balloons()       
 st.snow()
