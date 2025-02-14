@@ -21,4 +21,4 @@ st.markdown("___")
 
 st.success("This is the success")
 st.info("This is the info")
-st.warning("This is the warning")
+st.warning("This is **the** warning")
