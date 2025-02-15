@@ -73,4 +73,9 @@ element.area_chart({"data":[1,2,3,4,5]})
 # element.deck_gl_chart()
 # element.pydeck_chart()
 # element.map()
-i
+
+element.image("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png")
+element.video("https://www.youtube.com/watch?v=9bZkp7q19f0")
+element.audio("https://www.youtube.com/watch?v=9bZkp7q19f0")
+element.download_button("Click me", "This is the file")
+element.file_uploader("Upload the file")
