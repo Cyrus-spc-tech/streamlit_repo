@@ -54,3 +54,23 @@ st.selectbox("Select the option", ["1", "2", "3"])
 st.multiselect("Select the option", ["1", "2", "3"])
 a=st.slider("Select the range", 0, 100)
 st.write(a)
+#Adding 
+
+b=st.button("Click me")
+if b:
+    st.toast("clicked")
+st.markdown("___")
+
+#Graphs and figures 
+element=st.container()
+element.write("This is the container")
+element.line_chart({"data":[1,2,3,4,5]})
+element.bar_chart({"data":[1,2,3,4,5]})
+element.area_chart({"data":[1,2,3,4,5]})
+# element.pyplot()
+# element.altair_chart()
+# element.vega_lite_chart()
+# element.deck_gl_chart()
+# element.pydeck_chart()
+# element.map()
+i
