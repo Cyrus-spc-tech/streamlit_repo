@@ -35,10 +35,22 @@ col1.code("import sklearn as sk\n"
 
 col2.title("This is Column2")
 col2.subheader("This is the subheading")
-with st.spinner("""Loading..."""):
-    time.sleep(5)
-    st.balloons()
-if st.button("Snow"):
-    with st.spinner("Loading..."):
-        time.sleep(5)
-        st.snow()
+# with st.spinner("""Loading..."""):
+#     time.sleep(5)
+#     st.balloons()
+# if st.button("Snow"):
+#     with st.spinner("Loading..."):
+#         time.sleep(5)
+#         st.snow()
+with st.echo("This is the echo"):
+    st.write("This is the echo")
+#Adding Input Boxes
+st.text_input("Enter the text")
+st.number_input("Enter the number")
+st.text_area("Enter the text")
+st.date_input("Enter the date")
+st.time_input("Enter the time", value=None)
+st.selectbox("Select the option", ["1", "2", "3"])
+st.multiselect("Select the option", ["1", "2", "3"])
+a=st.slider("Select the range", 0, 100)
+st.write(a)
