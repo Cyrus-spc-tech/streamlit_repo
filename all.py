@@ -1,5 +1,7 @@
 import streamlit as st
 import time
+import numpy as np
+import pandas as pd
 st.title("This is the title ")
 st.subheader("This is the subheader")
 
@@ -79,3 +81,6 @@ element.video("https://www.youtube.com/watch?v=9bZkp7q19f0")
 element.audio("https://www.youtube.com/watch?v=9bZkp7q19f0")
 element.download_button("Click me", "This is the file")
 element.file_uploader("Upload the file")
+#Tables
+table=pd.DataFrame({"A":[1,2,3,4,5], "B":[6,7,8,9,10]})
+element.write(table)
