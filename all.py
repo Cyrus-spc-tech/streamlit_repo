@@ -2,6 +2,7 @@ import streamlit as st
 import time
 import numpy as np
 import pandas as pd
+st.set_page_config(layout="centered", page_icon=":knot:", page_title="All-Configurations")
 st.title("This is the title ")
 st.subheader("This is the subheader")
 
@@ -58,7 +59,7 @@ a=st.slider("Select the range", 0, 100)
 st.write(a)
 #Adding 
 
-b=st.button("Click me")
+b=st.button("Toast")
 if b:
     st.toast("clicked")
 st.markdown("___")
@@ -79,8 +80,25 @@ element.area_chart({"data":[1,2,3,4,5]})
 element.image("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png")
 element.video("https://www.youtube.com/watch?v=9bZkp7q19f0")
 element.audio("https://www.youtube.com/watch?v=9bZkp7q19f0")
-element.download_button("Click me", "This is the file")
+#downloading text file 
+element.download_button("Click me", "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png")
 element.file_uploader("Upload the file")
 #Tables
-table=pd.DataFrame({"A":[1,2,3,4,5], "B":[6,7,8,9,10]})
+table=pd.DataFrame({"A":[1,2,3,4,5], "B":[6,7,8,9,10], "C":[11,12,13,14,15], "D":[16,17,18,19,20]})
 element.write(table)
+
+def change():
+    print(st.session_state.checker)
+def btnclicked():
+    st.toast("clicked")
+
+state=st.checkbox("Select the option",value=True,on_change=change,key="checker")
+radio=st.radio("Select the option",["1", "2", "3"],index=0,key="radio")
+btn=st.button("Click me for a toast",on_click=btnclicked,key="btn")
+multiselect=st.multiselect("Select the option",["1", "2", "3"],key="multiselect")
+
+
+# if state:
+#     element.write("hi")
+# else:
+#     pass
