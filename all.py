@@ -98,6 +98,7 @@ btn=st.button("Click me for a toast",on_click=btnclicked,key="btn")
 multiselect=st.multiselect("Select the option",["1", "2", "3"],key="multiselect")
 
 
+
 # if state:
 #     element.write("hi")
 # else:
