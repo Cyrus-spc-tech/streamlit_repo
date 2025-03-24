@@ -1,1 +1,3 @@
 api_key = "c978c0732a3d3e0b91f6a62b22c7cc27"
+ url = f"http://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}&units=metric"
+   
