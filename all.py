@@ -103,3 +103,18 @@ multiselect=st.multiselect("Select the option",["1", "2", "3"],key="multiselect"
 #     element.write("hi")
 # else:
 #     pass
+
+st.slider("Select the range",key="slider", min_value=0, max_value=100)
+st.select_slider("Select the range", options=["1","1.5", "2","2.5", "3"],key="select_slider")
+title1 = st.text_input("Enter the text",key="text_input",placeholder="Enter the text")
+st.header(title1) 
+numb=st.number_input("Enter the number",key="number_input")
+st.write(numb)
+st.date_input("Enter the date",key="date_input")
+val=st.time_input("Enter the time",key="time_input")
+st.write(val)
+
+for i in range(3):
+    st.write(i)
+    st.progress(i)
+    time.sleep(1)
