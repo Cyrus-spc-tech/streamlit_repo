@@ -1,6 +1,7 @@
 import streamlit as st
 import time
 import numpy as np
+import matplotlib.pyplot as plt
 import pandas as pd
 st.set_page_config(layout="centered", page_icon=":knot:", page_title="All-Configurations")
 st.title("This is the title ")
@@ -145,11 +146,34 @@ with st.form("User Registration"):
             st.write(F_name)
             st.write(L_name)
             st.write(email)
-            st.write(age)
-            st.write(day)
-            st.write(month)
-            st.write(year)
+            st.write("Age : "+age)
 
-    
+#Adding Expander
+st.markdown("___")
+with st.expander("FAQ"):
+    st.code("Q1 > This is the box", language="python")
+    st.code("Q2 > This is the box", language="python")
 
+#aadding Sidebars
+st.markdown("___")
+st.sidebar.title("Sidebar")
+st.sidebar.subheader("This is the subheading")
+st.sidebar.markdown("[Sportify](https://open.spotify.com/)")
+st.sidebar.markdown(" [Youtube](https://www.youtube.com/)")
+st.sidebar.markdown("[![LinkedIn](https://image.flaticon.com/icons/png/512/174/174857.png)](https://www.linkedin.com)")
+st.sidebar.markdown("[![GitHub](https://image.flaticon.com/icons/png/512/25/25231.png)](https://github/cyrus-spc-tech.com)")
 
+#adding graphs
+option=st.sidebar.radio("select any Graph : ",options=["Line","Bar","Area","vega","Pie","bokeh"])
+if option=="Line":
+    st.line_chart({"data":[1,2,3,4,5]})
+elif option=="Bar":
+    st.bar_chart({"data":[1,2,3,4,5]})
+elif option=="vega":
+    st.vega_lite_chart({"data":[1,2,3,4,5]})
+elif option=="Pie":
+    st.deck_gl_chart({"data":[1,2,3,4,5]})
+elif option=="bokeh":
+    st.bokeh_chart({"data":[1,2,3,4,5]})
+elif option=="Area":
+    st.area_chart({"data":[1,2,3,4,5]})
