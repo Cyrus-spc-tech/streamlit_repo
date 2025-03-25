@@ -159,6 +159,7 @@ st.markdown("___")
 st.sidebar.title("Sidebar")
 st.sidebar.subheader("This is the subheading")
 st.sidebar.markdown("[Sportify](https://open.spotify.com/)")
+
 st.sidebar.markdown(" [Youtube](https://www.youtube.com/)")
 st.sidebar.markdown("[![LinkedIn](https://image.flaticon.com/icons/png/512/174/174857.png)](https://www.linkedin.com)")
 st.sidebar.markdown("[![GitHub](https://image.flaticon.com/icons/png/512/25/25231.png)](https://github/cyrus-spc-tech.com)")
@@ -176,4 +177,5 @@ elif option=="Pie":
 elif option=="bokeh":
     st.bokeh_chart({"data":[1,2,3,4,5]})
 elif option=="Area":
+
     st.area_chart({"data":[1,2,3,4,5]})
