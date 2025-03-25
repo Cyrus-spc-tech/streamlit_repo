@@ -118,3 +118,38 @@ for i in range(3):
     st.write(i)
     st.progress(i)
     time.sleep(1)
+
+#Adding Form
+st.markdown("___")
+st.markdown("<h1>User Registation </h1>",unsafe_allow_html=True)
+with st.form("User Registration"):
+
+    col1,col2=st.columns(2)
+    F_name=col1.text_input("First Name")
+    L_name=col2.text_input("Last Name ")
+
+    email=st.text_input("Enter the email")
+    age=st.number_input("Enter the age",min_value=0, max_value=60, step=1)
+    day,month,year=st.columns(3)
+    st.write("Enter the DOB")
+    day.text_input("Day")
+    month.text_input("Month")
+    year.text_input("Year")
+
+    submit=st.form_submit_button("Submit")
+    if submit:
+        if F_name == "" and email== "" :
+            st.error("Please enter the Details")
+        else:
+            st.success("The form is submitted")
+            st.write(F_name)
+            st.write(L_name)
+            st.write(email)
+            st.write(age)
+            st.write(day)
+            st.write(month)
+            st.write(year)
+
+    
+
+
