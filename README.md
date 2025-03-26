@@ -18,7 +18,7 @@ Before running the app, ensure you have the following installed:
 
 1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/<your-username>/<repo-name>.git
+   [git clone https://github.com/<your-username>/<repo-name>.git](https://github.com/Cyrus-spc-tech/streamlit_repo.git)
    ```
 
 2. Navigate to the project directory:
