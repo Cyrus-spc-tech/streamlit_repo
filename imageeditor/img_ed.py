@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+from PIL.ImageFilter import *
 
 st.markdown("<h1 style='text-align: center;'><u style='color:lightgreen;'>ImgPod</u></h1>",unsafe_allow_html=True)
 st.markdown("---")
@@ -25,10 +26,19 @@ if image:
     rot=st.number_input("Degree :")
 
     st.markdown("<h2 style='color: lightgreen; text-align: center;'>Filters</h2>",unsafe_allow_html=True)
-    st.selectbox("Filters",options=["none","blur","Details","smooth"])
+    filters=st.selectbox("Filters",options=["none","blur","Details","smooth",""])
 
 
     s_btn=st.button("submit")
     if s_btn:
         edited=img.resize((width,height)).rotate(rot)
-        st.image(edited)
+        filtered=edited 
+        # st.image(edited)
+        if filters != "none":
+            if filters=="blur":
+                filtered=edited.filter(BLUR)
+            elif filters == "Details":
+                filtered=edited.filter(DETAIL)
+            elif filters =="smooth":
+                filtered=edited.filter(SMOOTH)
+        st.image(filtered)
