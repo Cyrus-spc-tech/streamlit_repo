@@ -2,6 +2,9 @@ import streamlit as st
 import requests
 from bs4 import BeautifulSoup
 import base64
+# this is using google photos 
+
+
 
 st.set_page_config(layout="centered", page_icon=":camera:", page_title="PhotoPhilia", initial_sidebar_state="expanded")
 st.markdown("<h1 style='text-align: center; color:#9d0208; background-color:#ffdab9'>PhotoPhilia</h1>", unsafe_allow_html=True)
