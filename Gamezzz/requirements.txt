@@ -1,0 +1,5 @@
+pygame
+Math
+numpy
+Pandas
+pywhatkit
