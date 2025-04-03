@@ -12,7 +12,7 @@ Gamezzz is your go-to platform for simple yet entertaining games like "Guess the
 Stay tuned as we keep adding new games to keep the fun going!
 """)
 
-st.markdown("<h1>Gallary</h1>",unsafe_allow_html=True)
+st.markdown("<h1 style ='color:lightgreen; align:center;'>Gallary</h1>",unsafe_allow_html=True)
 col1, col2, col3 = st.columns(3)
 with col1:
     st.image("18.jpg")
