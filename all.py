@@ -114,7 +114,7 @@ st.write(numb)
 st.date_input("Enter the date",key="date_input")
 val=st.time_input("Enter the time",key="time_input")
 st.write(val)
-
+ 
 for i in range(3):
     st.write(i)
     st.progress(i)
