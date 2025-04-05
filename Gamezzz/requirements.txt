@@ -2,5 +2,4 @@ pygame
 Math
 numpy
 Pandas
-pywhatkit
 getpass
