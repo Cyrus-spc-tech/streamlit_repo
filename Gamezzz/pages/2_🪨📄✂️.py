@@ -23,16 +23,20 @@ if game_mode == "Play with Computer":
 
 elif game_mode == "Play with Friend":
     st.subheader("Play with Friend")
-    player1_choice = st.selectbox("Player 1 Choice:", choices, key="player1")
-    player2_choice = st.selectbox("Player 2 Choice:", choices, key="player2")
+    player1_choice = st.text_input("Player 1  Choise R / P / S",type='password').capitalize()
+    player2_choice = st.text_input("Player 2 Choise  R / P / S",type='password').capitalize()
     if st.button("Play"):
         st.write(f"Player 1 chose: {player1_choice}")
         st.write(f"Player 2 chose: {player2_choice}")
         if player1_choice == player2_choice:
             st.write("It's a tie!")
-        elif (player1_choice == "Rock" and player2_choice == "Scissors") or \
-             (player1_choice == "Paper" and player2_choice == "Rock") or \
-             (player1_choice == "Scissors" and player2_choice == "Paper"):
+        elif (player1_choice == "R" and player2_choice == "S") or \
+             (player1_choice == "P" and player2_choice == "R") or \
+             (player1_choice == "S" and player2_choice == "P"):
             st.write("Player 1 wins!")
         else:
             st.write("Player 2 wins!")
+        if st.button('play Again'):
+            st.write('play')
+
+        
