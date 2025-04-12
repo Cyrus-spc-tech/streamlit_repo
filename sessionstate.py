@@ -5,6 +5,7 @@ st.title("A session State : ")
 
 csv = pd.read_csv("data.csv",sep=";")
 df=pd.DataFrame(csv)
+
 if 'row' not in st.session_state:
     st.session_state.row = 5
 
@@ -18,3 +19,4 @@ if dec:
 
 st.table(df.head(st.session_state.row))
 st.write("This is the session state row : ", st.session_state.row)
+st.code(df.head(st.session_state.row))
