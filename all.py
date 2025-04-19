@@ -179,3 +179,5 @@ elif option=="bokeh":
 elif option=="Area":
 
     st.area_chart({"data":[1,2,3,4,5]})
+# tabs
+tabs=st.tabs(tabs=['PyGWalker', 'Graphic Walker', 'GWalkR', 'RATH'])
