@@ -177,7 +177,29 @@ elif option=="Pie":
 elif option=="bokeh":
     st.bokeh_chart({"data":[1,2,3,4,5]})
 elif option=="Area":
-
     st.area_chart({"data":[1,2,3,4,5]})
+
+
+
 # tabs
-tabs=st.tabs(tabs=['PyGWalker', 'Graphic Walker', 'GWalkR', 'RATH'])
+tab1, tab2, tab3, tab4 = st.tabs(["PyGWalker", "Graphic Walker", "GWalkR", "RATH"])
+
+with tab1:
+    st.header("PyGWalker")
+    st.write("PyGWalker is a Python library for visual data exploration.")
+    st.image("logomark_website.png", caption="PyGWalker Example")
+
+with tab2:
+    st.header("Graphic Walker")
+    st.write("Graphic Walker is a tool for creating interactive visualizations.")
+    st.image("logomark_website.png", caption="Graphic Walker Example")
+
+with tab3:
+    st.header("GWalkR")
+    st.write("GWalkR is an R package for data visualization.")
+    st.image("logomark_website.png", caption="GWalkR Example")
+
+with tab4:
+    st.header("RATH")
+    st.write("RATH is a platform for advanced data analytics.")
+    st.image("logomark_website.png", caption="RATH Example")
