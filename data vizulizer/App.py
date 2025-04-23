@@ -39,3 +39,4 @@ if uploaded_file is not None:
          st.line_chart(filtered_data.set_index(xaxis)[yaxis])
     else:
         st.write("Please click the button to generate the plot")
+st.close()
