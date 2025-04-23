@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+
+
+
 st.set_page_config(page_title="Data Vizulizer", page_icon=":bar_chart:", layout="centered", initial_sidebar_state="auto", menu_items=None)
 
 
