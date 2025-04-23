@@ -39,7 +39,7 @@ if uploaded_file is not None:
 
     if "plot_option" not in st.session_state:
         st.session_state.plot_option = None
-
+        st.write("Please click the button to generate the plot")
     if st.button("Generate Plot"):
         st.session_state.plot_option = st.sidebar.radio("Select a Graph you want to plot ", ("Line Graph", "Bar Graph", "Pie Chart"))
 
@@ -47,13 +47,21 @@ if uploaded_file is not None:
         if st.session_state.plot_option == "Line Graph":
             st.subheader("Line Graph")
             st.line_chart(filtered_data.set_index(xaxis)[yaxis])
+            st.session_state.plot_option = None
+
         elif st.session_state.plot_option == "Bar Graph":
             st.subheader("Bar Graph")
             st.bar_chart(filtered_data.set_index(xaxis)[yaxis])
+            st.session_state.plot_option = None
         elif st.session_state.plot_option == "Pie Chart":
+
             st.subheader("Pie Chart")
             plt.figure(figsize=(10, 6))
             plt.pie(filtered_data[yaxis], labels=filtered_data[xaxis], autopct='%1.1f%%')
+            
+
             plt.title(f"Pie Chart of {yaxis} by {xaxis}")
+            st.session_state.plot_option = None
             st.pyplot(plt)
-        st.write("Please click the button to generate the plot")
+
+        
