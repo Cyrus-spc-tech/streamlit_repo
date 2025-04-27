@@ -4,5 +4,21 @@
         0.9,
         0.9,
         0.9
+    ],
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "localhost",
+            "database": "TechStack",
+            "username": "root",
+            "password": "Tanishh#123"
+        }
     ]
 }
