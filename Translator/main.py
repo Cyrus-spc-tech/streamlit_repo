@@ -11,5 +11,7 @@ if st.button("Translate"):
             st.success(f"Translation: {translation}")
         except Exception as e:
             st.error(f"Error: {e}")
+            
     else:
+
         st.warning("Please enter text to translate.")
