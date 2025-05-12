@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 # Function to fetch weather data
+st.set_page_config(page_title="Weather Dashboard", page_icon=":sunny:", layout="centered", initial_sidebar_state="auto", menu_items=None)
 def get_weather_data(location):
     api_key = "c978c0732a3d3e0b91f6a62b22c7cc27"
     url = f"http://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}&units=metric"
