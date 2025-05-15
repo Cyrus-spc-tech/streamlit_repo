@@ -1,5 +1,5 @@
 pygame
-Math
+math
 numpy
 Pandas
 getpass
