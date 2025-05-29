@@ -28,13 +28,16 @@ if uploaded_file is not None:
         df = load_data(uploaded_file)
         st.success("✅ File uploaded and loaded successfully!")
 
+
         # Data Preview
         st.subheader("🔍 Data Preview")
         st.dataframe(df.head())
 
+
         # Data Summary
         st.subheader("📈 Data Summary")
         st.dataframe(df.describe())
+
 
         # Filter Data
         st.subheader("🔎 Filter Data")
@@ -53,6 +56,7 @@ if uploaded_file is not None:
 
         # Plotting
         st.subheader("📊 Plotting Data")
+
         xaxis = st.selectbox("Select x-axis", df.columns)
         yaxis = st.selectbox("Select y-axis", df.columns)
 
