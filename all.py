@@ -194,6 +194,7 @@ with tab2:
     st.write("Graphic Walker is a tool for creating interactive visualizations.")
     st.image("logomark_website.png", caption="Graphic Walker Example")
 
+
 with tab3:
     st.header("GWalkR")
     st.write("GWalkR is an R package for data visualization.")
@@ -202,4 +203,39 @@ with tab3:
 with tab4:
     st.header("RATH")
     st.write("RATH is a platform for advanced data analytics.")
-    st.image("logomark_website.png", caption="RATH Example")
+    st.image("logomark_website.png", caption="RATH Example")\
+
+
+# Session state 
+st.title("Session State")
+"st.session_state object:",st.session_state
+
+##work 
+num=st.slider("A no : ",1,10,key="slid")
+st.write(st.session_state)
+
+co1,buff,co2=st.columns([1,0.5,1])
+
+option=["a","b","c"]
+
+next=st.button("Next",key="next")
+if next:
+    if  st.session_state["radio1"] == "a":
+        st.session_state["radio1"] = "b"
+    elif st.session_state["radio1"] == "b":
+        st.session_state["radio1"] = "c"
+    elif st.session_state["radio1"] == "c":
+        st.session_state["radio1"] = "a"
+else:
+    st.session_state["radio1"] = "a"
+
+
+opt=co1.radio("Select the option",options=option,key="radio1")
+st.session_state
+
+if opt=="a":
+    co2.write("You selected option A")
+elif opt=="b":
+    co2.write("You selected option B")
+elif opt=="c":
+    co2.write("You selected option C")
