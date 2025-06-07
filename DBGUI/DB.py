@@ -43,6 +43,16 @@ class DB:
         
         print(df)
 
+    def Delete(self,id):
+        query="delete from user_data where id=%s"
+        c=self.db.cursor()
+        c.execute(query, (id,))
+        self.db.commit()
+        c.close()
+        print("Data deleted successfully")
 
 
+obj=DB()
+obj.insert("Tanishh", "sdfs", "sdfsdf")
+obj.fetch()
 
