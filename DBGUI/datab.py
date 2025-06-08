@@ -112,5 +112,6 @@ while True:
     
     else:
         print("Invalid choice. Please try again.")
+        
     
 # This code initializes a SQLite database and provides functions to insert, fetch, describe, delete, update, and get user data by ID.
