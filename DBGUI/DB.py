@@ -50,9 +50,3 @@ class DB:
         self.db.commit()
         c.close()
         print("Data deleted successfully")
-
-
-obj=DB()
-obj.insert("Tanishh", "sdfs", "sdfsdf")
-obj.fetch()
-

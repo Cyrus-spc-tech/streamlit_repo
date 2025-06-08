@@ -23,6 +23,6 @@ elif choice == '3':
 elif choice == '4':
     id = int(input("Enter ID to delete: "))
     obj.Delete(id)
-    print("Data deleted successfully.")
+    # print("Data deleted successfully.")
 else:
     print("Invalid choice. Please try again.")
