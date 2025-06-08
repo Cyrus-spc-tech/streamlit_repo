@@ -10,6 +10,9 @@ password TEXT NOT NULL)""")
 con.commit()
 con.close()
 
+
+
+# insert function to add user data to the database
 def insert(name, email, password):
     con = sqlite3.connect("Users.db")
     cur = con.cursor()
@@ -17,6 +20,9 @@ def insert(name, email, password):
     con.commit()
     con.close()
 
+
+
+# fetch function to retrieve all user data from the database
 def fetch():
     con = sqlite3.connect("Users.db")
     cur = con.cursor()
@@ -25,6 +31,9 @@ def fetch():
     con.close()
     return data
 
+
+
+# describe function to get the structure of the user table
 def describe():
     con = sqlite3.connect("Users.db")
     cur = con.cursor()
@@ -33,6 +42,9 @@ def describe():
     con.close()
     return data
 
+
+
+# delete function to remove a user by id from the database
 def delete(id):
     con = sqlite3.connect("Users.db")
     cur = con.cursor()
@@ -40,6 +52,9 @@ def delete(id):
     con.commit()
     con.close()
 
+
+
+# update function to modify user data by id
 def update(id, name, email, password):
     con = sqlite3.connect("Users.db")
     cur = con.cursor()
@@ -47,6 +62,9 @@ def update(id, name, email, password):
     con.commit()
     con.close()
 
+
+
+# get_user_by_id function to retrieve a user by their id
 def get_user_by_id(id):
     con = sqlite3.connect("Users.db")
     cur = con.cursor()
@@ -57,6 +75,10 @@ def get_user_by_id(id):
 
 print("Database and table created successfully.")
 
+
+
+
+
 print("Available functions:")
 print("1. insert(name, email, password)")
 print("2. fetch()")
@@ -65,6 +87,9 @@ print("4. delete(id)")
 print("5. update(id, name, email, password)")
 print("6. get_user_by_id(id)")
 print("7. exit()")
+
+
+
 
 while True:
     choice = input("Enter your choice: ")
@@ -112,6 +137,7 @@ while True:
     
     else:
         print("Invalid choice. Please try again.")
-        
+
+
     
 # This code initializes a SQLite database and provides functions to insert, fetch, describe, delete, update, and get user data by ID.
