@@ -14,7 +14,7 @@ def get_weather_data(location):
         response = requests.get(url)
         response.raise_for_status()
         return response.json()
-    except requests.exceptions.RequestException as e:
+    except RequestException as e:
         st.error(f"Error fetching current weather data: {e}")
         return {}
 
@@ -26,7 +26,7 @@ def get_forecast_data(location):
         response = requests.get(url)
         response.raise_for_status()
         return response.json()
-    except requests.exceptions.RequestException as e:
+    except RequestException as e:
         st.error(f"Error fetching forecast data: {e}")
         return {}
 
@@ -38,14 +38,14 @@ def check_rain_forecast(data):
     forecast = []
     current_time = datetime.utcnow()
 
-    for entry in data['list'][:4]:  # Next 12 hours (4 forecast entries, each 3 hours)
+    for entry in data['list'][:4]:  
         forecast_time = datetime.fromtimestamp(entry['dt'])
         if forecast_time > current_time + timedelta(hours=12):
             break
 
         weather = entry['weather'][0]
         rain_info = entry.get('rain', {})
-        rain_volume = rain_info.get('3h', 0) if rain_info else 0
+        rain_volume = rain_info.get('3h', 0) 
 
         forecast.append({
             'time': forecast_time.strftime('%Y-%m-%d %H:%M'),
