@@ -2,21 +2,18 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Set page config
+
 st.set_page_config(
     page_title="Data Visualizer",
     page_icon=":bar_chart:",
     layout="centered",
-    initial_sidebar_state="expanded"
 )
 
-# Title
+
 st.title("📊 _Data Visualizer_")
 
-# Sidebar
 st.sidebar.title("Upload and Settings")
 
-# File uploader
 uploaded_file = st.sidebar.file_uploader("Choose a CSV file", type="csv")
 
 if uploaded_file is not None:
@@ -29,17 +26,17 @@ if uploaded_file is not None:
         st.success("✅ File uploaded and loaded successfully!")
 
 
-        # Data Preview
+        
         st.subheader("🔍 Data Preview")
         st.dataframe(df.head())
 
 
-        # Data Summary
+        
         st.subheader("📈 Data Summary")
         st.dataframe(df.describe())
 
 
-        # Filter Data
+        
         st.subheader("🔎 Filter Data")
         filter_column = st.selectbox("Select a column to filter by", df.columns)
 
@@ -60,17 +57,30 @@ if uploaded_file is not None:
         xaxis = st.selectbox("Select x-axis", df.columns)
         yaxis = st.selectbox("Select y-axis", df.columns)
 
+        plot= st.selectbox("Select plot type", ["Line Plot", "Bar Plot", "Scatter Plot"])
+
         if xaxis == yaxis:
             st.warning("❗X-axis and Y-axis cannot be the same.")
         elif st.button("Generate Plot"):
-            try:
+            if plot == "Line Plot":
                 st.line_chart(filtered_data.set_index(xaxis)[yaxis])
-            except Exception as e:
-                st.error(f"Error generating plot: {e}")
-        else:
-            st.info("Click the button to generate the plot.")
+            elif plot == "Bar Plot":
+                st.bar_chart(filtered_data.set_index(xaxis)[yaxis])
+            elif plot == "Scatter Plot":
+                st.scatter_chart(filtered_data.set_index(xaxis)[yaxis])
+            else:
+                st.error("❌ Invalid plot type selected.")
+
+    #         try:
+    #             st.line_chart(filtered_data.set_index(xaxis)[yaxis])
+    #         except Exception as e:
+    #             st.error(f"Error generating plot: {e}")
+    #     else:
+    #         st.info("Click the button to generate the plot.")
+ 
 
     except Exception as e:
         st.error(f"❌ Error loading file: {e}")
+
 else:
     st.info("📁 Please upload a CSV file to get started.")
