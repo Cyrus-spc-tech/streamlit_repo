@@ -7,7 +7,7 @@ import re
 
 # Set page configuration
 st.set_page_config(
-    page_title="YouTube Video Downloader",
+    page_title="YT Downloader",
     page_icon="📥",
     layout="centered",
     initial_sidebar_state="auto"
