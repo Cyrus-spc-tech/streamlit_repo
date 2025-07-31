@@ -4,7 +4,7 @@ import streamlit as st
 
 st.title("Sentiment Analysis")
 
-choice=st.selectbox("Select the task",["Sentiment Analysis", "Named Entity Recognition"])
+choice=st.selectbox("Select the task",["Sentiment Analysis", "Named Entity Recognition","Text Generation"])
 text=st.text_input("Enter the text")
 
 if st.button("Analyze"):
@@ -16,3 +16,8 @@ if st.button("Analyze"):
         ner = pipeline("ner")
         result=ner(text)
         st.write(result)
+    elif choice == "Text Generation":
+        gen=pipeline("text-generation")
+        result=gen(text)
+        st.write(result)
+   
