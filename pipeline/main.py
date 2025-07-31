@@ -4,7 +4,7 @@ import streamlit as st
 
 st.title("Sentiment Analysis")
 
-choice=st.selectbox("Select the task",["Sentiment Analysis", "Named Entity Recognition","Text Generation"])
+choice=st.selectbox("Select the task",["Sentiment Analysis", "Named Entity Recognition","Text Generation","Summerization"])
 text=st.text_input("Enter the text")
 
 if st.button("Analyze"):
@@ -20,4 +20,8 @@ if st.button("Analyze"):
         gen=pipeline("text-generation")
         result=gen(text)
         st.write(result)
-   
+    elif choice == "Summerization":
+        summ=pipeline("summerization",model="facebook/bart-large-cnn")
+        result=summ(text)
+        st.write(result)
+
