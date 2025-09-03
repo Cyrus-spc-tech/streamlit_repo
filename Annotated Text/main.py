@@ -14,4 +14,7 @@ annotated_text(
     " this sort of ",
     ("thing", "noun"),
     "."
+    "hello there ",
+    ("world", "noun"),
+    "!"
 )
