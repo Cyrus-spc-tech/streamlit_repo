@@ -8,6 +8,7 @@ class DatabaseManager:
         self.databases = {}
         self.selected_db = None
         self.load_existing_databases()
+        
     def load_existing_databases(self):
         for file in os.listdir():
             if file.endswith('.db'):
