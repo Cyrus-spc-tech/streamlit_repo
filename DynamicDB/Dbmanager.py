@@ -38,3 +38,5 @@ class DBManager:
         cursor = self.databases[self.selected_db].cursor()
         cursor.execute(sql)
         self.databases[self.selected_db].commit()
+
+    def insert()
