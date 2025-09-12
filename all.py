@@ -71,6 +71,7 @@ element.write("This is the container")
 element.line_chart({"data":[1,2,3,4,5]})
 element.bar_chart({"data":[1,2,3,4,5]})
 element.area_chart({"data":[1,2,3,4,5]})
+
 # element.pyplot()
 # element.altair_chart()
 # element.vega_lite_chart()
