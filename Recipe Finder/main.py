@@ -2,7 +2,9 @@ import streamlit as st
 import requests
 import json 
 
+
 st.title("Recipe Finder and Meal Planner")
+
 
 ingre=st.text_input("Enter the ingredients you have (separated by commas )")
 
@@ -11,3 +13,4 @@ res=requests.get(url)
 data=res.json()
 if st.button("Find Recipes"):
     st.dataframe(data["meals"])
+    st.write(data["meals"])
