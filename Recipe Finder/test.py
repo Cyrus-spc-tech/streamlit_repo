@@ -8,18 +8,19 @@ print("Recipe Finder and Meal Planner")
 
 
 ingre=input("Enter the ingredients you have (separated by commas ) : ")
+# num=int(input("Enter the number of recipes you want to find : "))
 
 url="https://www.themealdb.com/api/json/v1/1/search.php?s={}".format(ingre)
 res=requests.get(url)
 data=res.json()
 if "Find Recipes":
     # print(data["meals"])
-    print("Image  "    + data["meals"][0]["strMealThumb"])
-    print("Name   "    + data["meals"][0]["strMeal"])
-    print("Origin "    + data["meals"][0]["strCategory"])
-    print("Place  "    + data["meals"][0]["strArea"])
+    print("[bright_red]Image[/bright_red]  "    + data["meals"][0]["strMealThumb"])
+    print("[bright_blue]Name [/bright_blue]  "    + data["meals"][0]["strMeal"])
+    print("[blue]Origin[/blue] "    + data["meals"][0]["strCategory"])
+    print("[green]Place[/green]  "    + data["meals"][0]["strArea"])
     print("__" *40)
-    print("Instructions "    + data["meals"][0]["strInstructions"])
+    print("[bright_green]Instructions[/bright_green] "   +"\n" + data["meals"][0]["strInstructions"])
 
 
     
