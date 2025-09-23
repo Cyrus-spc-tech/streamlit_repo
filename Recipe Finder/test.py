@@ -19,8 +19,10 @@ if "Find Recipes":
     print("[bright_blue]Name [/bright_blue]  "    + data["meals"][0]["strMeal"])
     print("[blue]Origin[/blue] "    + data["meals"][0]["strCategory"])
     print("[green]Place[/green]  "    + data["meals"][0]["strArea"])
+    print("[red]Youtube[/red] " + data["meals"][0]["strYoutube"])
     print("__" *40)
     print("[bright_green]Instructions[/bright_green] "   +"\n" + data["meals"][0]["strInstructions"])
+    
 
 
     
