@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import json 
-from rich import print
+
 
 
 st.title("Recipe Finder and Meal Planner")
