@@ -3,7 +3,7 @@ import requests
 import json 
 
 
-
+st.set_page_config(page_title="Recipe Finder and Meal Planner", page_icon=":fork_and_knife:")
 st.title("Recipe Finder and Meal Planner")
 
 
