@@ -22,6 +22,15 @@ if "Find Recipes":
     print("[red]Youtube[/red] " + data["meals"][0]["strYoutube"])
     print("__" *40)
     print("[bright_green]Instructions[/bright_green] "   +"\n" + data["meals"][0]["strInstructions"])
+    print("__" *40)
+    print("[bright_green]Ingredients[/bright_green] ")
+    for i in range(1, 20):
+        ingredient = data["meals"][0].get(f"strIngredient{i}")
+        measure = data["meals"][0].get(f"strMeasure{i}")
+        if ingredient:
+            print(f" >> {measure} {ingredient}", end="\n")
+    print("\n")
+
     
 
 
