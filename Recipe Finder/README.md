@@ -5,3 +5,5 @@ users input ingredients they have, get recipe suggestions via an API (e.g., Edam
 - Recipe suggestions fetched from an API based on selected ingredients.
 - A calendar view to schedule meals for the week.
 - An exportable shopping list for ingredients needed for the planned meals.
+### Live : 
+https://findyourrecipe.streamlit.app/
