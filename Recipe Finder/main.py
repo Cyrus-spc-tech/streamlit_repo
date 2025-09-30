@@ -24,6 +24,14 @@ with col2:
     st.subheader(data["meals"][0]["strArea"]) 
 
 # st.subheader(data["meals"][0]["strYoutube"]) 
-st.markdown(f"[Watch Video]({data['meals'][0]['strYoutube']})")
-   
+st.markdown(f"Here is the video explanation : [Watch Video]({data['meals'][0]['strYoutube']})")
+st.write("Ingredients")
+for i in range(1, 20):
+    ingredient = data["meals"][0].get(f"strIngredient{i}")
+    measure = data["meals"][0].get(f"strMeasure{i}")
+    
+    if ingredient:
+        st.code(f" > {measure} {ingredient} ")
+st.subheader("Instructions: ")
+st.write( data["meals"][0]["strInstructions"])
     
