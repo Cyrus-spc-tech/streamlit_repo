@@ -12,9 +12,10 @@ st.set_page_config(page_title="TODO",page_icon="📋",layout="centered")
 state = st.session_state
 init_todos()
 
-st.sidebar.title("TODO")
+st.sidebar.title("Menu >> ")
 
 # Add new task
+st.title("TODO")
 with st.form("add_form"):
     col1, col2 = st.columns([7, 1])
     with col1:
