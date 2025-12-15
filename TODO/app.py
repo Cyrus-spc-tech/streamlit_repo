@@ -12,7 +12,7 @@ st.set_page_config(page_title="TODO",page_icon="📋",layout="centered")
 state = st.session_state
 init_todos()
 
-st.title("` TODO `")
+st.sidebar.title("TODO")
 
 # Add new task
 with st.form("add_form"):
@@ -54,4 +54,4 @@ if state.todos:
     st.button("Delete all tasks", on_click=delete_completed)
 
 else:
-    st.info("No tasks available.")
+    st.sidebar.info("No tasks available.")
