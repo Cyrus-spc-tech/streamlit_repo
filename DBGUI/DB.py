@@ -3,6 +3,18 @@ import pandas as pd
 
 class DB:
     def __init__(self):
+        # First connect without specifying database to create it if needed
+        temp_db = conn.connect(
+            host='localhost',
+            port=3306,
+            user='root',
+            password='Tanishh#123'
+        )
+        cursor = temp_db.cursor()
+        cursor.execute("CREATE DATABASE IF NOT EXISTS techstack")
+        temp_db.close()
+        
+        # Now connect to the specific database
         self.db=conn.connect(
             host='localhost',
             port=3306,
@@ -19,16 +31,12 @@ class DB:
         c.close()
 
     def create_custom_table(self, table_name, columns_with_types):
-        """
-        Create a custom table with dynamic columns and types
-        columns_with_types: dict {'column_name': 'data_type'}
-        Supported types: 'int', 'varchar', 'text', 'float', 'datetime', 'boolean'
-        """
+    
         try:
             # Map Python types to MySQL types
             type_mapping = {
                 'int': 'INT',
-                'varchar': 'VARCHAR(255)',
+                'varchar': 'VARCHAR(300)',
                 'text': 'TEXT',
                 'float': 'FLOAT',
                 'datetime': 'DATETIME',
@@ -38,7 +46,7 @@ class DB:
             # Build column definitions
             column_defs = []
             for col_name, col_type in columns_with_types.items():
-                mysql_type = type_mapping.get(col_type.lower(), 'VARCHAR(255)')
+                mysql_type = type_mapping.get(col_type.lower(), 'VARCHAR(300)')
                 column_defs.append(f"`{col_name}` {mysql_type}")
             
             # Add auto-increment primary key
@@ -60,10 +68,6 @@ class DB:
             return False
 
     def insert_into_custom_table(self, table_name, data):
-        """
-        Insert data into custom table
-        data: dict {'column_name': 'value'}
-        """
         try:
             columns = list(data.keys())
             values = list(data.values())
