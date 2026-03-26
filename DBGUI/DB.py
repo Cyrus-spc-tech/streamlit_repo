@@ -30,10 +30,13 @@ class DB:
         print("Table created successfully")
         c.close()
 
+
+# custom tbl fx 
+
     def create_custom_table(self, table_name, columns_with_types):
     
         try:
-            # Map Python types to MySQL types
+            # Mapping Py types to MySQL types
             type_mapping = {
                 'int': 'INT',
                 'varchar': 'VARCHAR(300)',
@@ -48,11 +51,9 @@ class DB:
             for col_name, col_type in columns_with_types.items():
                 mysql_type = type_mapping.get(col_type.lower(), 'VARCHAR(300)')
                 column_defs.append(f"`{col_name}` {mysql_type}")
-            
-            # Add auto-increment primary key
+
             column_defs.insert(0, "id INT PRIMARY KEY AUTO_INCREMENT")
-            
-            # Create table query
+        
             columns_str = ", ".join(column_defs)
             query = f"CREATE TABLE IF NOT EXISTS `{table_name}` ({columns_str})"
             
@@ -67,6 +68,8 @@ class DB:
             print(f"Error creating table: {e}")
             return False
 
+
+# insert fx
     def insert_into_custom_table(self, table_name, data):
         try:
             columns = list(data.keys())
@@ -87,6 +90,9 @@ class DB:
             print(f"Error inserting data: {e}")
             return False
 
+
+# spec fetch fx 
+
     def fetch_custom_table(self, table_name):
         
         try:
@@ -95,7 +101,6 @@ class DB:
             c.execute(query)
             data = c.fetchall()
             
-            # Get column names
             c.execute(f"DESCRIBE `{table_name}`")
             columns_info = c.fetchall()
             columns = [col[0] for col in columns_info]
@@ -108,6 +113,8 @@ class DB:
         except Exception as e:
             print(f"Error fetching data: {e}")
             return None
+
+# struct of tbl 
 
     def describe_custom_table(self, table_name):
 
@@ -125,6 +132,8 @@ class DB:
             print(f"Error describing table: {e}")
             return None
 
+# spec del fx
+
     def delete_from_custom_table(self, table_name, id):
         try:
             query = f"DELETE FROM `{table_name}` WHERE id = %s"
@@ -140,7 +149,8 @@ class DB:
             return False
 
 
-
+# default fx
+'''
     def insert(self, name, email, password):
         query="insert into user_data (name, email, password) values (%s, %s, %s)"
         c=self.db.cursor()
@@ -165,7 +175,7 @@ class DB:
         df=pd.DataFrame(data, columns=['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'])
         
         print(df)
-
+    
     def Delete(self,id):
         query="delete from user_data where id=%s"
         c=self.db.cursor()
@@ -173,3 +183,5 @@ class DB:
         self.db.commit()
         c.close()
         print("Data deleted successfully")
+
+'''
