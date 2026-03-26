@@ -182,6 +182,9 @@ class DB:
             print(f"Error deleting record: {e}")
             return False
     
+
+# update fx 
+
     def update_record(self, table_name, record_id, data):
         
         try:
@@ -205,9 +208,9 @@ class DB:
         except Exception as e:
             print(f"Error updating record: {e}")
             return False
+# fetch spec fx 
 
     def get_record_by_id(self, table_name, record_id):
-        """Get a specific record by ID from any table"""
         try:
             query = f"SELECT * FROM `{table_name}` WHERE id = %s"
             c = self.db.cursor()
