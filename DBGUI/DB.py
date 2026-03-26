@@ -182,7 +182,51 @@ class DB:
             print(f"Error deleting record: {e}")
             return False
     
-    
+    def update_record(self, table_name, record_id, data):
+        
+        try:
+            set_clauses = []
+            values = []
+            for column, value in data.items():
+                set_clauses.append(f"`{column}` = %s")
+                values.append(value)
+            
+            values.append(record_id)  # Add ID for WHERE clause
+            
+            query = f"UPDATE `{table_name}` SET {', '.join(set_clauses)} WHERE id = %s"
+            
+            c = self.db.cursor()
+            c.execute(query, values)
+            self.db.commit()
+            c.close()
+            print(f"Record updated in '{table_name}' successfully!")
+            return True
+            
+        except Exception as e:
+            print(f"Error updating record: {e}")
+            return False
+
+    def get_record_by_id(self, table_name, record_id):
+        """Get a specific record by ID from any table"""
+        try:
+            query = f"SELECT * FROM `{table_name}` WHERE id = %s"
+            c = self.db.cursor()
+            c.execute(query, (record_id,))
+            record = c.fetchone()
+            c.close()
+            
+            if record:
+                # Get column names
+                columns = self.get_table_columns(table_name)
+                column_names = [col['name'] for col in columns]
+                return dict(zip(column_names, record))
+            return None
+            
+        except Exception as e:
+            print(f"Error fetching record: {e}")
+            return None
+
+
 
     
     
