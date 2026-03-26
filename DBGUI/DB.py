@@ -31,6 +31,40 @@ class DB:
         c.close()
 
 
+# for sidebar on st
+    def get_all_tables(self):
+        try:
+            query = "SHOW TABLES"
+            c = self.db.cursor()
+            c.execute(query)
+            tables = [table[0] for table in c.fetchall()]
+            c.close()
+            return tables
+        except Exception as e:
+            print(f"Error fetching tables: {e}")
+            return []
+    def get_table_columns(self, table_name):
+
+        query = f"DESCRIBE `{table_name}`"
+        c = self.db.cursor()
+        c.execute(query)
+        columns_info = c.fetchall()
+        c.close()
+        
+        # Return list of tuples: (column_name, data_type, is_nullable, key)
+        columns = []
+        for col in columns_info:
+            columns.append({
+                'name': col[0],
+                'type': col[1],
+                'nullable': col[2],
+                'key': col[3],
+                'default': col[4],
+                'extra': col[5]
+            })
+        return columns
+
+
 # custom tbl fx 
 
     def create_custom_table(self, table_name, columns_with_types):
@@ -147,6 +181,14 @@ class DB:
         except Exception as e:
             print(f"Error deleting record: {e}")
             return False
+    
+    
+
+    
+    
+    
+    
+
 
 
 # default fx
