@@ -32,7 +32,30 @@ choice = st.selectbox("Select Operation", menu)
 
 if choice == "Insert Data":
     st.subheader(f"Insert Data into {selected_table}")
-    pass
+    columns_info = db.get_table_columns(selected_table)
+    input_data = {}
+
+
+    for col in columns_info:
+        if col['name'] != 'id' or col['extra'] != 'auto_increment':
+            col_name = col['name']
+            col_type = col['type'].lower()
+            
+            if 'int' in col_type:
+                input_data[col_name] = st.number_input(f"{col_name} ({col['type']})", value=0, step=1)
+            elif 'float' in col_type or 'decimal' in col_type:
+                input_data[col_name] = st.number_input(f"{col_name} ({col['type']})", value=0.0, step=0.1)
+            elif 'boolean' in col_type:
+                input_data[col_name] = st.checkbox(f"{col_name} ({col['type']})")
+            elif 'password' in col_name.lower():
+                input_data[col_name] = st.text_input(f"{col_name} ({col['type']})", type="password")
+            elif 'text' in col_type:
+                input_data[col_name] = st.text_area(f"{col_name} ({col['type']})")
+            elif 'datetime' in col_type or 'date' in col_type:
+                input_data[col_name] = st.text_input(f"{col_name} ({col['type']})", value="2024-01-01")
+            else:
+                input_data[col_name] = st.text_input(f"{col_name} ({col['type']})")
+
     
 
 elif choice == "Create Custom Table":
@@ -49,7 +72,7 @@ elif choice == "View All Data":
         st.dataframe(data, use_container_width=True)
 
 
-        
+
         csv = data.to_csv(index=False)
         st.download_button(
             label="Download CSV",
