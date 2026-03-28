@@ -45,6 +45,19 @@ elif choice == "View All Data":
      st.subheader(f"All Data from {selected_table}")
      data = db.fetch_custom_table(selected_table)
 
+     if data is not None and not data.empty:
+        st.dataframe(data, use_container_width=True)
+
+
+        
+        csv = data.to_csv(index=False)
+        st.download_button(
+            label="Download CSV",
+            data=csv,
+            file_name=f"{selected_table}_data.csv",
+            mime="text/csv"
+        )
+
 
 
 
