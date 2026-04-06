@@ -56,6 +56,9 @@ if choice == "Insert Data":
             else:
                 input_data[col_name] = st.text_input(f"{col_name} ({col['type']})")
 
+                
+
+
     
 
 elif choice == "Create Custom Table":
