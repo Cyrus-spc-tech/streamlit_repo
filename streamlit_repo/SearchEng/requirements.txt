@@ -1,0 +1,3 @@
+exa-py
+streamlit
+python-dotenv
